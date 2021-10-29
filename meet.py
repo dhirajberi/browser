@@ -16,10 +16,9 @@ class WebEnginePage(QWebEnginePage):
             self.setFeaturePermission(url, feature, QWebEnginePage.PermissionDeniedByUser)
 
 app = QApplication([])
-
 view = QWebEngineView()
 page = WebEnginePage()
 view.setPage(page)
-view.load(QUrl("https://meet.new"))
+view.load(QUrl("http://meet.new"))
 view.show()
 app.exec_()

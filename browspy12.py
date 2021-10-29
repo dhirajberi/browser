@@ -59,6 +59,12 @@ class MainWindow(QMainWindow):
 		youtube_btn.triggered.connect(self.navigate_youtube)
 		navtb.addAction(youtube_btn)
 
+		# Meet
+		meet_btn = QAction("Meet", self)
+		meet_btn.setStatusTip("Go Google Meet")
+		meet_btn.triggered.connect(self.navigate_meet)
+		navtb.addAction(meet_btn)        
+
 		# adding a separator
 		navtb.addSeparator()
 
@@ -123,6 +129,10 @@ class MainWindow(QMainWindow):
 	def navigate_youtube(self):
 		self.tabs.currentWidget().setUrl(QUrl("https://youtube.com"))
 
+	# Meet
+	def navigate_meet(self):
+		import meet
+
 	# method for navigate to url
 	def navigate_to_url(self):
 		q = QUrl(self.urlbar.text())
@@ -136,20 +146,6 @@ class MainWindow(QMainWindow):
 			return
 		self.urlbar.setText(q.toString())
 		self.urlbar.setCursorPosition(0)
-
-# Permission Update
-class WebEnginePage(QWebEnginePage):
-    def __init__(self, *args, **kwargs):
-        QWebEnginePage.__init__(self, *args, **kwargs)
-        self.featurePermissionRequested.connect(self.onFeaturePermissionRequested)
-
-    def onFeaturePermissionRequested(self, url, feature):
-        if feature in (QWebEnginePage.MediaAudioCapture, 
-            QWebEnginePage.MediaVideoCapture, 
-            QWebEnginePage.MediaAudioVideoCapture):
-            self.setFeaturePermission(url, feature, QWebEnginePage.PermissionGrantedByUser)
-        else:
-            self.setFeaturePermission(url, feature, QWebEnginePage.PermissionDeniedByUser)
 
 app = QApplication(sys.argv)
 app.setApplicationName("BrowsPy v1.2")
