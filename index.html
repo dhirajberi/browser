@@ -10,24 +10,84 @@
     <style>
         body {
             background-color: black;
+            color: white;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
+        .container {
+            margin-bottom: 40px; /* Increase the margin to add more space below the content */
+        }
+
         h1, h2, h3, h4, h6 {
             color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px; /* Add some space below the logo and text */
+        }
+
+        .logo {
+            width: 8em;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-box {
+            width: 40em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-button {
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div class="container my-4">
-        <center><img src="logo.png" alt=""></center>
-        <center><h1>Brows<span style="color: red">Py</span></h1></center><br>
-        <center><h1>The best privacy online</h1></center><br>
-        <center><h3><span style="color: red">10x</span> faster than Chrome. Better protection from Google and Big Tech.</h3></center><br>
-        <center><a href="https://github.com/dhirajberi/browser/releases/download/v1.2/BrowsPy.v1.2.exe" download class="btn btn-primary">Download for Windows</a></center><br><br>
-        <center>
-        <footer>
-            <h6>Developed by Dhiraj Beri | <a href="/download/releases.html">Other Releases</a> </h6>
-        </footer>
-        </center>
+    <div class="container my-4 text-center">
+        <div class="logo-container">
+            <h1>Brows<span style="color: red">Py</span></h1>
+            <img src="logo.png" alt="" class="logo">
+        </div>
+        <h3><span style="color: red">10x</span> faster than Chrome. Offers better protection.</h3>
+
+        <div class="search-container">
+            <form action="https://www.google.com/search" method="GET">
+                <input type="text" name="q" placeholder="Search without being tracked" class="search-box">
+                <input type="submit" value="Search 🔍" class="search-button">
+            </form>
+        </div>
     </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <h6>Developed by <span style="color: red"><em>Dhiraj Beri</em></span></h6>
+        </div>
+    </footer>
+    <script src="snow.js"></script>
 </body>
 </html>
